@@ -21,7 +21,6 @@ Visualiza tus gastos, analiza patrones y mejora tus hábitos financieros.
 | 🌫️ Blanco | `#FFFFFF` | Fondos y tarjetas |
 
 **Tipografía principal:** `Inter`, sans-serif  
-**Estilo general:** Cálido, moderno y enfocado en la claridad visual.
 
 ---
 
@@ -42,7 +41,7 @@ Visualiza tus gastos, analiza patrones y mejora tus hábitos financieros.
 | **Frontend** | React, Vite, CSS Modules / Styled Components |
 | **UI & Estilo** | Paleta personalizada (Terracota + Azul grisáceo), Inter Font |
 | **IA (Básica)** | TensorFlow.js / Dialogflow / Rasa (en desarrollo) |
-| **Backend (opcional)** | Node.js + Express / Firebase |
+| **Backend** | Node.js + Express / Supabase |
 | **Gráficos** | Recharts / Chart.js |
 
 ---
