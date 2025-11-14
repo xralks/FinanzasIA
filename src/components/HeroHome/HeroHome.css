@@ -1,0 +1,37 @@
+.HeroSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+  padding: 4rem 2rem;
+}
+
+.HeroContTexto {
+  max-width: 650px;
+}
+
+.HeroSection h1 {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+  font-weight: var(--font-weight-bold);
+}
+.HeroSection p {
+  font-size: var(--font-size-lg);
+  margin-bottom: 2rem;
+  font-weight: var(--font-weight-regular);
+}
+.containerBotonesHero {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.boton-largo {
+  width: 100%;
+}
+
+.iconBanking {
+  width: 400px;
+  height: 400px;
+  margin-right: var(--space-sm);
+}
