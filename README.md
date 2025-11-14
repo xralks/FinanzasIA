@@ -20,7 +20,7 @@ Visualiza tus gastos, analiza patrones y mejora tus hábitos financieros.
 | ⚫ Gris carbón | `#2E2E2E` | Texto principal |
 | 🌫️ Blanco | `#FFFFFF` | Fondos y tarjetas |
 
-**Tipografía principal:** `Inter`, sans-serif  
+**Tipografía principal:** `Manrope`, Arial, sans-serif  
 
 ---
 
