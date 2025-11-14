@@ -1,6 +1,6 @@
 import '../styles/Inicio.css'
 
-export default function Inicio() {
+const Inicio = () => {
   return (
     <div>
       <section className="Hero-section">
@@ -8,11 +8,12 @@ export default function Inicio() {
           <h1>FinanzasIA</h1>
           <p>Tu Asistente de Finanzas Personales Inteligente</p>
           <div className="container-botones-hero">
-            <a href="/cursos" className="btn-primario">Ver Cursos</a>
-            <a href="/contacto" className="btn-segundario">Contacto</a>
+            <a href="/cursos" className="boton-primario boton-largo">Comenzar ahora</a>
           </div>
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
+
+export default Inicio;
