@@ -28,6 +28,27 @@
   );
 }
 
+.HeroSection::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+  background-size: 18px 28px;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 .HeroContTexto {
   max-width: 650px;
 }
