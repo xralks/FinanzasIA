@@ -1,0 +1,226 @@
+.loginView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: var(--space-lg);
+}
+
+.loginView h1 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-xl);
+}
+
+.loginView a {
+    color: var(--color-text);
+    font-weight: var(--font-weight-medium);
+    transition: color 0.25s ease;
+}
+
+form {
+    position: relative;
+    border-radius: var(--radius-alto);
+    padding: var(--space-xl);
+    overflow: hidden;
+
+    background-color: color-mix(in srgb, var(--color-bg-alt) 70%, transparent);
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--sombra-media);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 100%;
+    max-width: 550px;
+
+    min-height: 520px;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    form {
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 600px) {
+    form {
+        max-width: 92%;
+        padding: var(--space-lg);
+        min-height: 480px;
+    }
+}
+
+@media (max-width: 400px) {
+    form {
+        max-width: 100%;
+        padding: var(--space-md);
+        min-height: 440px;
+    }
+}
+
+form::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -40%;
+  left: -40%;
+  z-index: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(226, 125, 96, 0.12),
+    rgba(226, 125, 96, 0.04),
+    transparent 70%
+  );
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+form::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    );
+
+  background-size: 18px 28px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.iconoUsuario {
+    width: 140px;
+    height: 140px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.iconoUsuario svg {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+}
+
+label {
+    display: block;
+    margin-top: 1.2rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-text);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.25s ease;
+}
+
+label:hover {
+    text-shadow: 0 0 6px var(--color-primary);
+}
+
+.formGroup:focus-within label {
+    color: var(--color-primary);
+}
+
+input {
+    width: 100%;
+    margin-top: 1rem;
+    background-color: var(--color-bg-alt);
+    color: var(--color-text);
+    padding: var(--space-sm);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-alto);
+    font-size: var(--font-size-sm);
+    transition: 
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease,
+        transform 0.15s ease;
+    box-shadow:
+        inset 0 1px 3px rgba(0, 0, 0, 0.12),
+        0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+input:hover {
+    border-color: var(--color-primary-light);
+}
+
+input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 2px 0 var(--color-primary) inset;
+}
+
+input::placeholder {
+    color: var(--color-text-soft);
+    opacity: 0.7;
+}
+
+button {
+    margin-top: var(--space-xl);
+}
+
+.opcionesLogin {
+    margin-top: var(--space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    font-size: var(--font-size-xs);
+}
+
+.opcion {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.opcion p {
+    color: var(--color-text);
+}
+
+.opcion a {
+    color: var(--color-primary-light);
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.opcion a:hover {
+    color: var(--color-primary);
+    text-shadow: 0 0 6px var(--color-primary);
+}
+
+@media (max-width: 500px) {
+    .opcionesLogin {
+        justify-content: center;
+        gap: var(--space-md);
+    }
+
+    .opcion {
+        justify-content: center;
+    }
+}
