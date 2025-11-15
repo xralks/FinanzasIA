@@ -90,7 +90,7 @@ a {
 
 .boton-primario {
   background-color: var(--color-primary); 
-  color: var(--color-bg-alt); 
+  color: var(--color-text); 
   border: 2px solid var(--color-primary);
   border-radius: var(--radius-medio);
   padding: var(--space-sm) var(--space-md);
@@ -115,7 +115,7 @@ a {
 
 .boton-secundario {
   background-color: var(--color-secondary);
-  color: var(--color-bg-alt);
+  color: var(--color-text);
   border: 2px solid var(--color-secondary);
   border-radius: var(--radius-medio); 
   padding: var(--space-sm) var(--space-md); 

@@ -4,6 +4,27 @@
   align-items: center;
   color: var(--color-text);
   padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.HeroSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+
+  background-color: var(--color-bg);
+
+  background-image: radial-gradient(
+    100% 50% at 50% 0%,
+    rgba(255, 77, 46, 0.18) 0%,
+    rgba(255, 77, 46, 0) 55%,
+    rgba(255, 77, 46, 0) 100%
+  );
 }
 
 .HeroContTexto {
@@ -14,6 +35,7 @@
   font-size: 3rem;
   margin-bottom: var(--space-md);
   font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing);
 }
 .HeroSection p {
   font-size: var(--font-size-lg);
