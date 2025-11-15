@@ -1,8 +1,8 @@
-import NavbarHome from "../components/NavbarHome/NavbarHome";
-import HeroHome from "../components/HeroHome/HeroHome";
-import BeneficiosHome from "../components/BeneficiosHome/BeneficiosHome";
-import BentosHome from "../components/BentosHome/BentosHome";
-import FooterHome from "../components/FooterHome/FooterHome";
+import NavbarHome from "../components/componentsHome/NavbarHome/NavbarHome";
+import HeroHome from "../components/componentsHome/HeroHome/HeroHome";
+import BeneficiosHome from "../components/componentsHome/BeneficiosHome/BeneficiosHome";
+import BentosHome from "../components/componentsHome/BentosHome/BentosHome";
+import FooterHome from "../components/componentsHome/FooterHome/FooterHome";
 import Footer from "../components/Footer/Footer";
 
 const Inicio = () => {
