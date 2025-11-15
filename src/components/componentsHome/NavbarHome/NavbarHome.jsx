@@ -8,7 +8,7 @@ const NavbarHome = () => {
                     <a href="/">FinanzasIA</a>
                 </div>
                 <div className="botonNavbarHome">
-                    <a href="/cursos" className="boton-primario">
+                    <a href="/Inicio-Sesion" className="boton-primario">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="currentColor"

@@ -8,7 +8,7 @@ const HeroHome = () => {
                     <h1>Toma el control de tus Finanzas</h1>
                     <p>La forma más simple de gestionar tu dinero. Ahorra, presupuesta y alcanza tus metas financieras sin complicaciones.</p>
                     <div className="containerBotonesHero">
-                        <a href="/cursos" className="boton-primario boton-largo">Comenzar ahora</a>
+                        <a href="/Inicio-Sesion" className="boton-primario boton-largo">Comenzar ahora</a>
                     </div>
                 </div>
                 <div className="iconBanking">
