@@ -88,6 +88,19 @@ a {
   text-decoration: none;
 }
 
+.resaltarTexto {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-light) 0%,
+    var(--color-primary) 10%,
+    #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 12px rgba(255, 77, 46, 0.35);
+}
+
 .boton-primario {
   background-color: var(--color-primary); 
   color: var(--color-text); 
