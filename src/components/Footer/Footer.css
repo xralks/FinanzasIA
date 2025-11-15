@@ -1,0 +1,31 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.iconosSociales {
+    display: flex;
+    gap: 16px;
+}
+
+.iconosSociales a {
+    color: #fff;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.iconosSociales a:hover {
+    color: var(--color-primary);
+    transform: scale(1.15);
+}
+
+.iconosSociales svg {
+    width: 26px;
+    height: 26px;
+}
