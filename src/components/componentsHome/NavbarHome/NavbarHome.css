@@ -24,7 +24,15 @@
     padding: 1rem 2rem;
 }
 
+.navbarHomeLogo svg {
+    width: 28px;
+    height: 28px;
+}
+
 .navbarHomeLogo a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; 
     cursor: pointer;
     text-decoration: none;
     color: var(--color-text);
