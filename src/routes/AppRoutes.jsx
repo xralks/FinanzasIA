@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
 import Inicio from '../pages/Inicio'
 import Login from '../pages/Login'
-import { Register } from '../pages/Register'
+import Register from '../pages/Register'
+import RecuperarContraseña from '../pages/RecuperarContraseña'
 
 export default function AppRoutes() {
   return (
@@ -9,6 +10,7 @@ export default function AppRoutes() {
       <Route path="/" element={<Inicio />} />
       <Route path="/Inicio-Sesion" element={<Login />} />
       <Route path="/Registro" element={<Register />} />
+      <Route path="/Recuperar-Contraseña" element={<RecuperarContraseña />} />
     </Routes>
   )
 }

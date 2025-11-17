@@ -1,6 +1,6 @@
-import './LoginView.css';
+import "./RecuperarContraseña.css";
 
-const LoginView = () => {
+const RecuperarContraseña = () => {
     return (
         <div className="loginView">
             <h1><a href="/">FinanzasIA</a></h1>
@@ -34,31 +34,24 @@ const LoginView = () => {
                         </g>
                     </svg>
                 </div>
+                <div class="opcionesLogin">
+                    <div class="opcion">
+                        <p>Ingresa tu correo y te enviaremos un enlace para restablecer tu contraseña.</p>
+                    </div>
+                </div>
                 <div class="formGroup">
                     <label htmlFor="mail">Correo:</label>
                     <input type="text" id="mail" name="mail" required />
                 </div>
-
-                <div class="formGroup">
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" required />
-                </div>
+                <button type="submit" className="boton-primario boton-largo">Recuperar Contraseña</button>
 
                 <div class="opcionesLogin">
                     <div class="opcion">
-                        <p>¿Olvidaste tu contraseña?</p>
-                        <a href="/Recuperar-Contraseña">Recuperar</a>
-                    </div>
-
-                    <div class="opcion">
-                        <p>¿No tienes cuenta? </p>
-                        <a href="/Registro">Regístrate</a>
+                        <a href="/Inicio-Sesion">Volver al inicio de sesión</a>
                     </div>
                 </div>
-
-                <button type="submit" className="boton-primario boton-largo">Ingresar</button>
             </form>
         </div>
     );
 };
-export default LoginView;
+export default RecuperarContraseña;
