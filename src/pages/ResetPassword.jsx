@@ -1,7 +1,7 @@
 
 const ResetPassword = () => {
     return (
-        <div className="loginView">
+        <div className="containerGbForm">
             <h1><a href="/">FinanzasIA</a></h1>
             <form>
                 <div className="iconoUsuario">
@@ -33,12 +33,12 @@ const ResetPassword = () => {
                         </g>
                     </svg>
                 </div>
-                <div class="opcionesLogin">
-                    <div class="opcion">
+                <div class="opcionesNavForm">
+                    <div class="opcionNavForm">
                         <p>Escribe tu nueva contraseña para continuar.</p>
                     </div>
                 </div>
-                <div class="formGroup">
+                <div class="formGrupo">
                     <label htmlFor="password">Nueva contraseña:</label>
                     <input type="password" id="password" name="password" required />
                 </div>

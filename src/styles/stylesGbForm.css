@@ -1,4 +1,4 @@
-.loginView {
+.containerGbForm {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,18 +7,18 @@
     padding: var(--space-lg);
 }
 
-.loginView h1 {
+.containerGbForm h1 {
     font-size: var(--font-size-3xl);
     margin-bottom: var(--space-xl);
 }
 
-.loginView a {
+.containerGbForm a {
     color: var(--color-text);
     font-weight: var(--font-weight-medium);
     transition: color 0.25s ease;
 }
 
-form {
+.containerGbForm form {
     position: relative;
     border-radius: var(--radius-alto);
     padding: var(--space-xl);
@@ -41,13 +41,13 @@ form {
 }
 
 @media (max-width: 900px) {
-    form {
+    .containerGbForm form {
         max-width: 70%;
     }
 }
 
 @media (max-width: 600px) {
-    form {
+    .containerGbForm form {
         max-width: 92%;
         padding: var(--space-lg);
         min-height: 480px;
@@ -55,14 +55,14 @@ form {
 }
 
 @media (max-width: 400px) {
-    form {
+    .containerGbForm form {
         max-width: 100%;
         padding: var(--space-md);
         min-height: 440px;
     }
 }
 
-form::before {
+.containerGbForm form::before {
   content: "";
   position: absolute;
   width: 150%;
@@ -80,7 +80,7 @@ form::before {
   pointer-events: none;
 }
 
-form::after {
+.containerGbForm form::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -139,7 +139,7 @@ label:hover {
     text-shadow: 0 0 6px var(--color-primary);
 }
 
-.formGroup:focus-within label {
+.formGrupo:focus-within label {
     color: var(--color-primary);
 }
 
@@ -176,11 +176,11 @@ input::placeholder {
     opacity: 0.7;
 }
 
-button {
+.containerGbForm button {
     margin-top: var(--space-xl);
 }
 
-.opcionesLogin {
+.opcionesNavForm {
     margin-top: var(--space-lg);
     display: flex;
     justify-content: space-between;
@@ -191,17 +191,17 @@ button {
     font-size: var(--font-size-xs);
 }
 
-.opcion {
+.opcionNavForm {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.opcion p {
+.opcionNavForm p {
     color: var(--color-text);
 }
 
-.opcion a {
+.opcionNavForm a {
     color: var(--color-primary-light);
     font-weight: 600;
     text-decoration: none;
@@ -209,18 +209,22 @@ button {
     transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
-.opcion a:hover {
+.opcionNavForm a:hover {
     color: var(--color-primary);
     text-shadow: 0 0 6px var(--color-primary);
 }
 
+.containerGbForm .centro {
+    justify-content: center;
+}
+
 @media (max-width: 500px) {
-    .opcionesLogin {
+    .opcionesNavForm {
         justify-content: center;
         gap: var(--space-md);
     }
 
-    .opcion {
+    .opcionNavForm {
         justify-content: center;
     }
 }

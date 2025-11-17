@@ -2,7 +2,7 @@ import "./../styles/stylesGbForm.css"
 
 const Login = () => {
   return (
-        <div className="loginView">
+        <div className="containerGbForm">
             <h1><a href="/">FinanzasIA</a></h1>
             <form>
                 <div className="iconoUsuario">
@@ -34,23 +34,23 @@ const Login = () => {
                         </g>
                     </svg>
                 </div>
-                <div class="formGroup">
+                <div class="formGrupo">
                     <label htmlFor="mail">Correo:</label>
                     <input type="text" id="mail" name="mail" required />
                 </div>
 
-                <div class="formGroup">
+                <div class="formGrupo">
                     <label htmlFor="password">Password:</label>
                     <input type="password" id="password" name="password" required />
                 </div>
 
-                <div class="opcionesLogin">
-                    <div class="opcion">
+                <div class="opcionesNavForm">
+                    <div class="opcionNavForm">
                         <p>¿Olvidaste tu contraseña?</p>
                         <a href="/Recuperar-Contraseña">Recuperar</a>
                     </div>
 
-                    <div class="opcion">
+                    <div class="opcionNavForm">
                         <p>¿No tienes cuenta? </p>
                         <a href="/Registro">Regístrate</a>
                     </div>

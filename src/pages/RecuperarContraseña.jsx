@@ -2,7 +2,7 @@ import "./../styles/stylesGbForm.css"
 
 export const RecuperarContraseña = () => {
   return (
-        <div className="loginView">
+        <div className="containerGbForm">
             <h1><a href="/">FinanzasIA</a></h1>
             <form>
                 <div className="iconoUsuario">
@@ -34,19 +34,19 @@ export const RecuperarContraseña = () => {
                         </g>
                     </svg>
                 </div>
-                <div class="opcionesLogin">
-                    <div class="opcion">
+                <div class="opcionesNavForm">
+                    <div class="opcionNavForm">
                         <p>Ingresa tu correo y te enviaremos un enlace para restablecer tu contraseña.</p>
                     </div>
                 </div>
-                <div class="formGroup">
+                <div class="formGrupo">
                     <label htmlFor="mail">Correo:</label>
                     <input type="text" id="mail" name="mail" required />
                 </div>
                 <button type="submit" className="boton-primario boton-largo">Recuperar Contraseña</button>
 
-                <div class="opcionesLogin">
-                    <div class="opcion">
+                <div class="opcionesNavForm">
+                    <div class="opcionNavForm">
                         <a href="/Inicio-Sesion">Volver al inicio de sesión</a>
                     </div>
                 </div>
