@@ -33,12 +33,12 @@ const ResetPassword = () => {
                         </g>
                     </svg>
                 </div>
-                <div class="opcionesNavForm">
-                    <div class="opcionNavForm">
+                <div className="opcionesNavForm">
+                    <div className="opcionNavForm">
                         <p>Escribe tu nueva contraseña para continuar.</p>
                     </div>
                 </div>
-                <div class="formGrupo">
+                <div className="formGrupo">
                     <label htmlFor="password">Nueva contraseña:</label>
                     <input type="password" id="password" name="password" required />
                 </div>

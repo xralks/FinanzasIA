@@ -34,29 +34,29 @@ export const Register = () => {
                         </g>
                     </svg>
                 </div>
-                <div class="formGrupo">
+                <div className="formGrupo">
                     <label htmlFor="username">Nombre y Apellido:</label>
                     <input type="text" id="username" name="username" required />
                 </div>
 
-                <div class="formGrupo">
+                <div className="formGrupo">
                     <label htmlFor="mail">Correo:</label>
                     <input type="email" id="mail" name="mail" required />
                 </div>
 
-                <div class="formGrupo">
+                <div className="formGrupo">
                     <label htmlFor="password">Password:</label>
                     <input type="password" id="password" name="password" required />
                 </div>
 
-                <div class="formGrupo">
+                <div className="formGrupo">
                     <label htmlFor="confirmPassword">Confirmar contraseña:</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" required />
                 </div>
                 <button type="submit" className="boton-primario boton-largo">Registrarse</button>
                 
                 <div className="opcionesNavForm centro">
-                    <div class="opcionNavForm">
+                    <div className="opcionNavForm">
                         <p>¿Ya tienes cuenta? </p>
                         <a href="/Inicio-Sesion">Iniciar sesión</a>
                     </div>

@@ -34,23 +34,23 @@ const Login = () => {
                         </g>
                     </svg>
                 </div>
-                <div class="formGrupo">
+                <div className="formGrupo">
                     <label htmlFor="mail">Correo:</label>
                     <input type="text" id="mail" name="mail" required />
                 </div>
 
-                <div class="formGrupo">
+                <div className="formGrupo">
                     <label htmlFor="password">Password:</label>
                     <input type="password" id="password" name="password" required />
                 </div>
 
-                <div class="opcionesNavForm">
-                    <div class="opcionNavForm">
+                <div className="opcionesNavForm">
+                    <div className="opcionNavForm">
                         <p>¿Olvidaste tu contraseña?</p>
                         <a href="/Recuperar-Contraseña">Recuperar</a>
                     </div>
 
-                    <div class="opcionNavForm">
+                    <div className="opcionNavForm">
                         <p>¿No tienes cuenta? </p>
                         <a href="/Registro">Regístrate</a>
                     </div>
