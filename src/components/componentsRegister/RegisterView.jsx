@@ -53,8 +53,14 @@ export const RegisterView = () => {
                     <label htmlFor="confirmPassword">Confirmar contraseña:</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" required />
                 </div>
-
                 <button type="submit" className="boton-primario boton-largo">Registrarse</button>
+                
+                <div className="opcionesLogin centro">
+                    <div class="opcion">
+                        <p>¿Ya tienes cuenta? </p>
+                        <a href="/Inicio-Sesion">Iniciar sesión</a>
+                    </div>
+                </div>
             </form>
         </div>
     );
