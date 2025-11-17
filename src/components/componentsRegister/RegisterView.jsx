@@ -1,10 +1,10 @@
-import './LoginView.css';
+import "./RegisterView.css";
 
-const LoginView = () => {
+export const RegisterView = () => {
     return (
         <div className="loginView">
             <h1><a href="/">FinanzasIA</a></h1>
-            <form>
+            <form >
                 <div className="iconoUsuario">
                     <svg
                         height="200px"
@@ -35,8 +35,13 @@ const LoginView = () => {
                     </svg>
                 </div>
                 <div class="formGroup">
+                    <label htmlFor="username">Nombre y Apellido:</label>
+                    <input type="text" id="username" name="username" required />
+                </div>
+
+                <div class="formGroup">
                     <label htmlFor="mail">Correo:</label>
-                    <input type="text" id="mail" name="mail" required />
+                    <input type="email" id="mail" name="mail" required />
                 </div>
 
                 <div class="formGroup">
@@ -44,21 +49,14 @@ const LoginView = () => {
                     <input type="password" id="password" name="password" required />
                 </div>
 
-                <div class="opcionesLogin">
-                    <div class="opcion">
-                        <p>¿Olvidaste tu contraseña?</p>
-                        <a href="/">Recuperar</a>
-                    </div>
-
-                    <div class="opcion">
-                        <p>¿No tienes cuenta? </p>
-                        <a href="/Registro">Regístrate</a>
-                    </div>
+                <div class="formGroup">
+                    <label htmlFor="confirmPassword">Confirmar contraseña:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required />
                 </div>
 
-                <button type="submit" className="boton-primario boton-largo">Ingresar</button>
+                <button type="submit" className="boton-primario boton-largo">Registrarse</button>
             </form>
         </div>
     );
 };
-export default LoginView;
+export default RegisterView;
