@@ -3,6 +3,7 @@ import Inicio from '../pages/Inicio'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
 import RecuperarContraseña from '../pages/RecuperarContraseña'
+import ResetPassword from '../pages/ResetPassword'
 
 export default function AppRoutes() {
   return (
@@ -11,6 +12,7 @@ export default function AppRoutes() {
       <Route path="/Inicio-Sesion" element={<Login />} />
       <Route path="/Registro" element={<Register />} />
       <Route path="/Recuperar-Contraseña" element={<RecuperarContraseña />} />
+      <Route path="/Reset-Password" element={<ResetPassword />} />
     </Routes>
   )
 }
