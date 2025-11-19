@@ -66,6 +66,10 @@
   gap: 2px;
 }
 
+.collapsed .sidebar-header {
+  justify-content: center;
+}
+
 .toggle-button {
   width: 2rem;
   height: 2rem;
@@ -78,11 +82,33 @@
   align-items: center;
   justify-content: center;
   transition: all 200ms;
+  flex-shrink: 0;
 }
 
 .toggle-button:hover {
   background-color: var(--color-bg-soft);
   color: var(--color-text-light);
+}
+
+.sidebar-header .navbarHomeLogo {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: var(--space-sm);
+}
+
+.sidebar-header .navbarHomeLogo svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.collapsed .navbarHomeLogo {
+  display: none;
+}
+
+.expanded .navbarHomeLogo {
+  display: flex;
 }
 
 .nav-main {
@@ -120,6 +146,7 @@
   justify-content: center;
   flex-shrink: 0;
   box-shadow: var(--glow-primary);
+  margin-left: -3px;
 }
 
 .new-chat-label {
