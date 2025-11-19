@@ -1,0 +1,416 @@
+.menuLateral {
+  width: 253px;
+  height: 100vh;
+  background-color: var(--color-bg-alt);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl) var(--space-md);
+  box-sizing: border-box;
+  font-family: var(--font-family-base);
+  border-right: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+  transition: width 0.3s ease;
+}
+
+.menuLateral::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -40%;
+  left: -40%;
+  z-index: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(226, 125, 96, 0.18),
+    rgba(226, 125, 96, 0.06),
+    transparent 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.menuLateralHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  padding: 0 var(--space-md);
+  position: relative;
+  z-index: 1;
+}
+
+.menuLateralLogo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  padding: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.menuLateralLogo svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.menuLateralLogo a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; 
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  transition: color 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.menuLateralLogo a:hover {
+  color: var(--color-primary);
+  text-shadow: 0 0 12px rgba(255, 77, 46, 0.35);
+}
+
+.logo {
+  font-size: 28px;
+}
+
+.app-title {
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+  letter-spacing: var(--letter-spacing);
+}
+
+.menuLateral-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm);
+  background: none;
+  border: none;
+  border-radius: var(--radius-medio);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.nav-item:hover {
+  background-color: var(--color-bg-soft);
+  color: var(--color-text-light);
+}
+
+.nav-item.active {
+  background: var(--gradient-primary);
+  color: var(--color-text);
+  box-shadow: var(--glow-primary);
+}
+
+.nav-icon {
+  font-size: 20px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-label {
+  font-weight: var(--font-weight-medium);
+  transition: opacity 0.3s ease;
+}
+
+.menuLateral-footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  position: relative;
+  z-index: 1;
+}
+
+.add-transaction-btn {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border: none;
+  border-radius: var(--radius-medio);
+  color: var(--color-text);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--glow-primary);
+  letter-spacing: var(--letter-spacing);
+}
+
+.add-transaction-btn:hover {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-primary), var(--shadow-soft);
+}
+
+.add-transaction-btn:active {
+  transform: translateY(0);
+}
+
+.settings-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: none;
+  border: none;
+  border-radius: var(--radius-medio);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.settings-btn:hover {
+  background-color: var(--color-bg-soft);
+  color: var(--color-text-light);
+}
+
+.settings-icon {
+  font-size: 20px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.settings-label {
+  font-weight: var(--font-weight-medium);
+  transition: opacity 0.3s ease;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border-radius: var(--radius-medio);
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  border-top: 1px solid var(--color-divider);
+  padding-top: var(--space-lg);
+  margin-top: var(--space-sm);
+  overflow: hidden;
+}
+
+.user-profile:hover {
+  background-color: var(--color-bg-soft);
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  flex-shrink: 0;
+  box-shadow: var(--sombra-baja);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.user-name {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: var(--letter-spacing);
+}
+
+.user-email {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menuLateral-footer a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; 
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  transition: color 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.menuLateral-footer svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.menu-toggle {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-medio);
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: var(--color-bg-soft);
+}
+
+.menu-toggle:hover span {
+  background: var(--color-primary);
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.menuLateral:not(.open) {
+  width: 70px;
+}
+
+.menuLateral:not(.open) .menuLateralHeader {
+  padding: 0;
+  justify-content: center;
+}
+
+.menuLateral:not(.open) .menuLateralLogo a {
+  justify-content: center;
+}
+
+.menuLateral:not(.open) .menuLateralLogo a span,
+.menuLateral:not(.open) .nav-label,
+.menuLateral:not(.open) .settings-label,
+.menuLateral:not(.open) .user-info {
+  opacity: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.menuLateral:not(.open) .nav-item,
+.menuLateral:not(.open) .settings-btn {
+  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.menuLateral:not(.open) .menuLateral-footer a {
+  justify-content: center;
+}
+
+.menuLateral:not(.open) .menuLateral-footer a span {
+  opacity: 0;
+  width: 0;
+}
+
+.menuLateral:not(.open) .user-profile {
+  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (max-width: 768px) {
+  .menuLateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transform: translateX(-100%);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+    width: 243px;
+  }
+
+  .menuLateral.open {
+    transform: translateX(0);
+  }
+
+  .menuLateral:not(.open) {
+    width: 243px;
+    transform: translateX(-100%);
+  }
+
+  .menuLateral:not(.open) .menuLateralLogo a span,
+  .menuLateral:not(.open) .nav-label,
+  .menuLateral:not(.open) .settings-label,
+  .menuLateral:not(.open) .user-info,
+  .menuLateral:not(.open) .menuLateral-footer a span {
+    opacity: 1;
+    width: auto;
+    pointer-events: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .menuLateral {
+    width: 280px;
+    max-width: 85vw;
+  }
+}
