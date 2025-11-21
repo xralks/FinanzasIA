@@ -4,7 +4,7 @@ import Login from '../pages/Login'
 import Register from '../pages/Register'
 import RecuperarContraseña from '../pages/RecuperarContraseña'
 import ResetPassword from '../pages/ResetPassword'
-import NavbarUsuarios from '../components/componentsUsuarios/NavbarUsuarios/NavbarUsuarios'
+import MiPanel from '../pages/MiPanel'
 
 export default function AppRoutes() {
   return (
@@ -14,7 +14,7 @@ export default function AppRoutes() {
       <Route path="/Registro" element={<Register />} />
       <Route path="/Recuperar-Contraseña" element={<RecuperarContraseña />} />
       <Route path="/Reset-Password" element={<ResetPassword />} />
-      <Route path="/Mi-Panel" element={<NavbarUsuarios />} />
+      <Route path="/Mi-Panel" element={<MiPanel/>} />
     </Routes>
   )
 }
