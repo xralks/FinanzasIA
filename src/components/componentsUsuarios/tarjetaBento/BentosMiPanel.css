@@ -7,6 +7,7 @@
 .app-wrapper {
   max-width: 1400px;
   margin: 0 auto;
+  padding-left: 45px;
 }
 
 .title-section {
@@ -427,6 +428,10 @@
 
 /* Responsive */
 @media (max-width: 1200px) {
+  .app-wrapper{
+    width: 80%;
+  }
+
   .bento-grid-main {
     grid-template-columns: 1fr 1fr;
   }
