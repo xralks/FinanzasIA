@@ -172,7 +172,7 @@ const BentosTransacciones = () => {
                     </div>
                 </div>
                 <div className='contenedor-boton-mas'>
-                    <a className="boton-primario boton-largo mas" href="">Ver más Transacciones</a>
+                    <a href="/Inicio-Sesion" className="boton-primario boton-largo mas">Ver más Transacciones</a>
                 </div>
             </>
         )
