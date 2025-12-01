@@ -1,0 +1,420 @@
+/* Contenedor principal */
+.contenedor-app {
+  min-height: 100vh;
+  padding: var(--space-xl);
+}
+
+/* Contenido Principal */
+.envoltorio-app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 45px;
+}
+
+.seccion-titulo {
+  margin-bottom: var(--space-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titulo-app {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.subtitulo-app {
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+}
+
+/* Grid principal de Bento - Sistema dinámico */
+.grilla-bento-principal {
+  width: 100%;
+  margin-bottom: var(--space-lg);
+}
+
+/* Tarjetas Bento */
+.tarjeta-bento {
+  position: relative;
+  border-radius: var(--radius-alto);
+  padding: var(--space-xl);
+  overflow: hidden;
+  background-color: var(--color-bg-alt);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--sombra-media);
+}
+
+.tarjeta-bento::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -40%;
+  left: -40%;
+  z-index: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(255, 77, 46, 0.18),
+    rgba(255, 77, 46, 0.06),
+    transparent 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.tarjeta-bento::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+  background-size: 18px 28px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.tarjeta-bento:hover {
+  box-shadow: var(--shadow-strong);
+  transform: translateY(-4px);
+  transition: all 0.3s;
+}
+
+.titulo-tarjeta {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+  position: relative;
+  z-index: 1;
+}
+
+/* Sección de Cuentas */
+.grilla-cuentas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  position: relative;
+  z-index: 1;
+}
+
+.tarjeta-cuenta {
+  border-radius: var(--radius-medio);
+  padding: var(--space-lg);
+  border: 1px solid;
+  transition: all 0.2s;
+}
+
+.tarjeta-cuenta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-baja);
+}
+
+.cuenta-ahorros {
+  background: rgba(46, 204, 113, 0.1);
+  border-color: rgba(46, 204, 113, 0.3);
+}
+
+.cuenta-ahorros .encabezado-cuenta {
+  color: var(--color-success);
+}
+
+.cuenta-corriente {
+  background: rgba(74, 163, 255, 0.1);
+  border-color: rgba(74, 163, 255, 0.3);
+}
+
+.cuenta-corriente .encabezado-cuenta {
+  color: var(--color-info);
+}
+
+.cuenta-credito {
+  background: rgba(255, 77, 77, 0.1);
+  border-color: rgba(255, 77, 77, 0.3);
+  grid-column: span 2;
+}
+
+.cuenta-credito .encabezado-cuenta {
+  color: var(--color-error);
+}
+
+.encabezado-cuenta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.etiqueta-cuenta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.monto-cuenta {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.monto-credito {
+  color: var(--color-error);
+}
+
+/* Gráfico de Gastos */
+.grafico-gastos {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+  position: relative;
+  z-index: 1;
+}
+
+.circulo-grafico {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.circulo-grafico svg {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 8;
+}
+
+.circle-segment {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.segment-1 {
+  stroke: var(--color-success);
+  stroke-dasharray: 75 251;
+}
+
+.segment-2 {
+  stroke: var(--color-warning);
+  stroke-dasharray: 50 251;
+  stroke-dashoffset: -75;
+}
+
+.segment-3 {
+  stroke: var(--color-error);
+  stroke-dasharray: 37.5 251;
+  stroke-dashoffset: -125;
+}
+
+.segment-4 {
+  stroke: #8b5cf6;
+  stroke-dasharray: 37.5 251;
+  stroke-dashoffset: -162.5;
+}
+
+.centro-grafico {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.etiqueta-grafico {
+  color: var(--color-text-light);
+  font-size: var(--font-size-xs);
+  margin-bottom: var(--space-xs);
+}
+
+.valor-grafico {
+  color: var(--color-text);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.leyenda-gastos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.item-leyenda {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.punto-leyenda {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.etiqueta-leyenda {
+  color: var(--color-text-light);
+  font-size: var(--font-size-xs);
+  flex: 1;
+}
+
+.valor-leyenda {
+  color: var(--color-text);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Sección de Transacciones */
+.lista-transacciones {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: relative;
+  z-index: 1;
+}
+
+.item-transaccion {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medio);
+  transition: all 0.2s;
+}
+
+.item-transaccion:hover {
+  background: var(--color-bg-alt);
+  border-color: var(--color-primary);
+  transform: translateX(4px);
+  box-shadow: var(--sombra-baja);
+}
+
+.icono-transaccion {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-medio);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icono-verde {
+  background: rgba(46, 204, 113, 0.15);
+  color: var(--color-success);
+}
+
+.icono-morado {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+}
+
+.icono-naranja {
+  background: rgba(255, 179, 71, 0.15);
+  color: var(--color-warning);
+}
+
+.info-transaccion {
+  flex: 1;
+  min-width: 0;
+}
+
+.nombre-transaccion {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-xs);
+}
+
+.fecha-transaccion {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.monto-transaccion {
+  color: var(--color-text);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+}
+
+.monto-transaccion.positivo {
+  color: var(--color-success);
+}
+
+/* Botón Ver Más */
+.contenedor-boton-mas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.mas {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .envoltorio-app {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .grilla-cuentas {
+    grid-template-columns: 1fr;
+  }
+  
+  .cuenta-credito {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .contenedor-app {
+    padding: var(--space-md);
+  }
+
+  .envoltorio-app {
+    padding-left: 0;
+  }
+  
+  .seccion-titulo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .titulo-app {
+    font-size: var(--font-size-2xl);
+  }
+
+  .tarjeta-bento {
+    padding: var(--space-lg);
+  }
+
+  .leyenda-gastos {
+    grid-template-columns: 1fr;
+  }
+}

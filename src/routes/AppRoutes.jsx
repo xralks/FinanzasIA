@@ -5,6 +5,7 @@ import Register from '../pages/Register'
 import RecuperarContraseña from '../pages/RecuperarContraseña'
 import ResetPassword from '../pages/ResetPassword'
 import MiPanel from '../pages/MiPanel'
+import Transacciones from '../pages/Transacciones'
 
 export default function AppRoutes() {
   return (
@@ -15,6 +16,7 @@ export default function AppRoutes() {
       <Route path="/Recuperar-Contraseña" element={<RecuperarContraseña />} />
       <Route path="/Reset-Password" element={<ResetPassword />} />
       <Route path="/Mi-Panel" element={<MiPanel/>} />
+      <Route path="/Transacciones" element={<Transacciones/>}/>
     </Routes>
   )
 }
