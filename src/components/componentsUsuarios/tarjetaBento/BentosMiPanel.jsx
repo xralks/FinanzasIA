@@ -214,6 +214,9 @@ export default function FinancialDashboard() {
                 <div className="transaction-amount">-$62.30</div>
               </div>
             </div>
+                <div className='contenedor-boton-mas'>
+                    <a className="boton-primario boton-largo mas" href="">Ver más Transacciones</a>
+                </div>
           </div>
         </div>
       </div>
