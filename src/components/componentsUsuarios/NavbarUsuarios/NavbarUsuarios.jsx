@@ -48,7 +48,6 @@ const NavbarUsuarios = () => {
           }
           label="Transacciones"
           href="/Transacciones"
-          isActive={true}
         />
         <NavItem
           icon={

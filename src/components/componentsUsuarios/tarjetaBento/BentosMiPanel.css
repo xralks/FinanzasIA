@@ -1,0 +1,494 @@
+.app-container {
+  min-height: 100vh;
+  padding: var(--space-xl);
+}
+
+/* Main Content */
+.app-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.title-section {
+  margin-bottom: var(--space-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.app-subtitle {
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+}
+
+.boton-medio {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Bento Grid */
+.bento-grid-main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.bento-grid-secondary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.bento-card {
+  position: relative;
+  border-radius: var(--radius-alto);
+  padding: var(--space-xl);
+  overflow: hidden;
+  background-color: var(--color-bg-alt);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--sombra-media);
+}
+
+.bento-card::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -40%;
+  left: -40%;
+  z-index: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(255, 77, 46, 0.18),
+    rgba(255, 77, 46, 0.06),
+    transparent 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.bento-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+  background-size: 18px 28px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.bento-card:hover {
+  box-shadow: var(--shadow-strong);
+  transform: translateY(-4px);
+  transition: all 0.3s;
+}
+
+.card-span-2 {
+  grid-column: span 2;
+}
+
+.card-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  margin-top: 2.5rem;
+}
+
+/* Accounts Section */
+.accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  position: relative;
+  z-index: 1;
+}
+
+.account-card {
+  border-radius: var(--radius-medio);
+  padding: var(--space-lg);
+  border: 1px solid;
+  transition: all 0.2s;
+}
+
+.account-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-baja);
+}
+
+.account-savings {
+  background: rgba(46, 204, 113, 0.1);
+  border-color: rgba(46, 204, 113, 0.3);
+}
+
+.account-savings .account-header {
+  color: var(--color-success);
+}
+
+.account-current {
+  background: rgba(74, 163, 255, 0.1);
+  border-color: rgba(74, 163, 255, 0.3);
+}
+
+.account-current .account-header {
+  color: var(--color-info);
+}
+
+.account-credit {
+  background: rgba(255, 77, 77, 0.1);
+  border-color: rgba(255, 77, 77, 0.3);
+  grid-column: span 2;
+}
+
+.account-credit .account-header {
+  color: var(--color-error);
+}
+
+.account-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.account-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.account-amount {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.credit-amount {
+  color: var(--color-error);
+}
+
+/* Expenses Chart */
+.expenses-chart {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+  position: relative;
+  z-index: 1;
+}
+
+.chart-circle {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.chart-circle svg {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 8;
+}
+
+.circle-segment {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.segment-1 {
+  stroke: var(--color-success);
+  stroke-dasharray: 75 251;
+}
+
+.segment-2 {
+  stroke: var(--color-warning);
+  stroke-dasharray: 50 251;
+  stroke-dashoffset: -75;
+}
+
+.segment-3 {
+  stroke: var(--color-error);
+  stroke-dasharray: 37.5 251;
+  stroke-dashoffset: -125;
+}
+
+.segment-4 {
+  stroke: #8b5cf6;
+  stroke-dasharray: 37.5 251;
+  stroke-dashoffset: -162.5;
+}
+
+.chart-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.chart-label {
+  color: var(--color-text-light);
+  font-size: var(--font-size-xs);
+  margin-bottom: var(--space-xs);
+}
+
+.chart-value {
+  color: var(--color-text);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.expenses-legend {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.legend-label {
+  color: var(--color-text-light);
+  font-size: var(--font-size-xs);
+  flex: 1;
+}
+
+.legend-value {
+  color: var(--color-text);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Budget Section */
+.budget-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  position: relative;
+  z-index: 1;
+}
+
+.budget-item {
+  width: 100%;
+}
+
+.budget-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.budget-label {
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+}
+
+.budget-values {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-pequeño);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: var(--radius-pequeño);
+  transition: width 0.3s ease;
+  box-shadow: var(--glow-primary);
+}
+
+/* Transactions Section */
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: relative;
+  z-index: 1;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medio);
+  transition: all 0.2s;
+}
+
+.transaction-item:hover {
+  background: var(--color-bg-alt);
+  border-color: var(--color-primary);
+  transform: translateX(4px);
+  box-shadow: var(--sombra-baja);
+}
+
+.transaction-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-medio);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-green {
+  background: rgba(46, 204, 113, 0.15);
+  color: var(--color-success);
+}
+
+.icon-purple {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+}
+
+.icon-orange {
+  background: rgba(255, 179, 71, 0.15);
+  color: var(--color-warning);
+}
+
+.transaction-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.transaction-name {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-xs);
+}
+
+.transaction-date {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.transaction-amount {
+  color: var(--color-text);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+}
+
+.transaction-amount.positive {
+  color: var(--color-success);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .bento-grid-main {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .card-span-2 {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 1024px) {
+  .bento-grid-main {
+    grid-template-columns: 1fr;
+  }
+  
+  .bento-grid-secondary {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-span-2 {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: var(--space-md);
+  }
+
+  .header {
+    flex-direction: column;
+    gap: var(--space-lg);
+    align-items: flex-start;
+  }
+  
+  .nav {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .title-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .app-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .accounts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .account-credit {
+    grid-column: span 1;
+  }
+
+  .bento-card {
+    padding: var(--space-lg);
+  }
+
+  .expenses-legend {
+    grid-template-columns: 1fr;
+  }
+}

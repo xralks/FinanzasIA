@@ -1,11 +1,11 @@
 import NavbarUsuarios from "../components/componentsUsuarios/NavbarUsuarios/NavbarUsuarios";
-import MiPanelBento from "../components/componentsUsuarios/tarjetaBento/MipnelBento";
+import BentosPanel from "../components/componentsUsuarios/tarjetaBento/BentosMiPanel";
 
 const MiPanel = () => {
   return (
     <div>
         <NavbarUsuarios />
-        <MiPanelBento />
+        <BentosPanel />
     </div>
     );
 };
