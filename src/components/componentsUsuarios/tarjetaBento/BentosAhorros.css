@@ -1,0 +1,242 @@
+.containerCardsAhorros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: var(--space-lg);
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.cardAhorro {
+    position: relative;
+    border-radius: var(--radius-alto);
+    padding: 28px;
+    overflow: hidden;
+    background-color: var(--color-bg-alt);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--sombra-media);
+    width: 100%;
+    min-width: 340px;
+}
+
+.cardAhorro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(
+        circle at top right,
+        rgba(255, 77, 46, 0.15) 0%,
+        rgba(255, 77, 46, 0.05) 40%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.cardAhorro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        );
+    background-size: 18px 28px;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.cardAhorro:hover {
+    box-shadow: var(--shadow-strong);
+    transform: translateY(-4px);
+    transition: all 0.3s;
+}
+
+.headCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-md);
+    position: relative;
+    z-index: 1;
+}
+
+.labelViaje {
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+.btnMenu {
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    cursor: pointer;
+    padding: var(--space-xs);
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnMenu:hover {
+    color: var(--color-text);
+}
+
+.cardAhorro h2 {
+    color: var(--color-text);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-lg);
+    position: relative;
+    z-index: 1;
+}
+
+.montoSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: var(--space-sm);
+    position: relative;
+    z-index: 1;
+}
+
+.montoActual {
+    display: flex;
+    flex-direction: column;
+}
+
+.montoGrande {
+    color: var(--color-text);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+}
+
+.montoMeta {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-xs);
+}
+
+.porcentaje {
+    color: var(--color-primary-light);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.barraProgreso {
+    width: 100%;
+    height: 8px;
+    background: var(--color-bg-soft);
+    border-radius: var(--radius-pequeño);
+    overflow: hidden;
+    margin-bottom: var(--space-lg);
+    position: relative;
+    z-index: 1;
+}
+
+.barraProgresoFill {
+    height: 100%;
+    background: var(--color-primary-light);
+    border-radius: var(--radius-pequeño);
+    transition: width 0.5s ease;
+    box-shadow: var(--glow-primary);
+}
+
+.footerCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-sm);
+    position: relative;
+    z-index: 1;
+}
+
+.tiempoRestante {
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.hola {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hola .boton-primario {
+    width: auto;
+    white-space: nowrap;
+}
+
+.btnAnadirFondos svg {
+    width: 18px;
+    height: 18px;
+}
+
+@media (max-width: 1200px) {
+    .containerCardsAhorros {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: var(--space-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .containerCardsAhorros {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .cardAhorro {
+        min-width: unset;
+        max-width: 100%;
+    }
+    
+    .footerCard {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md);
+    }
+    
+    .tiempoRestante {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .hola {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hola .boton-primario {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cardAhorro {
+        padding: var(--space-lg);
+    }
+    
+    .montoGrande {
+        font-size: var(--font-size-xl);
+    }
+    
+    .porcentaje {
+        font-size: var(--font-size-lg);
+    }
+}
