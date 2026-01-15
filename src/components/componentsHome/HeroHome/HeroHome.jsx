@@ -1,4 +1,4 @@
-import HeroFinanzasia from "../../../assets/HeroFinanzasia.png";
+import HeroFinanzasia from "../../../assets/HeroFinanzasia.webp";
 import "./HeroHome.css";
 
 const HeroHome = () => {
