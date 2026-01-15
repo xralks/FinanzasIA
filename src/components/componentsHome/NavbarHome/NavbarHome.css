@@ -44,3 +44,13 @@
     color: var(--color-primary);
     text-shadow: 0 0 12px rgba(255, 77, 46, 0.35);
 }
+
+@media (max-width: 390px) {
+    .navbarHomeLogo {
+        padding: 1rem;
+    }
+
+    .botonNavbarHome svg{
+        display: none !important;
+    }
+}
