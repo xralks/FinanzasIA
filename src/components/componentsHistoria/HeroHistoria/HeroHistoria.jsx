@@ -9,7 +9,7 @@ const HeroHistoria = () => {
                     <span className="hero-badge">Quiénes Somos</span>
                     <h1 className="hero-title">
                         Transformando ideas en 
-                        <span className="subrayado"> soluciones digitales</span>
+                        <span className="resaltarTexto"> soluciones digitales</span>
                     </h1>
                     <p className="hero-description">
                         Somos un equipo apasionado de profesionales dedicados a crear experiencias
