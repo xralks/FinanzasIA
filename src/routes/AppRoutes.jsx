@@ -7,6 +7,7 @@ import ResetPassword from '../pages/ResetPassword'
 import MiPanel from '../pages/MiPanel'
 import Transacciones from '../pages/Transacciones'
 import Ahorros from '../pages/Ahorros'
+import HistoriaAPP from '../pages/HistoriaApp'
 
 export default function AppRoutes() {
   return (
@@ -19,6 +20,7 @@ export default function AppRoutes() {
       <Route path="/Mi-Panel" element={<MiPanel/>} />
       <Route path="/Transacciones" element={<Transacciones/>}/>
       <Route path="/Ahorros" element={<Ahorros/>}/>
+      <Route path="/Historia" element={<HistoriaAPP/>}/>
     </Routes>
   )
 }
