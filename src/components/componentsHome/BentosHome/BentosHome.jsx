@@ -1,3 +1,4 @@
+import MovilImg from '../../../assets/ImgMovil.webp'
 import "./BentosHome.css";
 
 const BentosHome = () => {
@@ -6,13 +7,16 @@ const BentosHome = () => {
             <div className="bentoGrid">
 
                 <div className="bentoItem large">
-                    <h3>Automatización</h3>
-                    <p>Optimiza tareas repetitivas con IA.</p>
+                    <h3>Metas de ahorro</h3>
+                    <p>Crea tus propias metas de ahorro.</p>
+                    <div className="contenedorimgMovil">
+                        <img src={MovilImg} alt="" />
+                    </div>
                 </div>
 
                 <div className="bentoItem medium">
-                    <h3>Colaboración</h3>
-                    <p>Conecta a tu equipo con herramientas modernas.</p>
+                    <h3>Automatización</h3>
+                    <p>Optimiza tareas repetitivas con IA.</p>
                 </div>
 
                 <div className="bentoItem small">
