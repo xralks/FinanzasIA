@@ -1,0 +1,406 @@
+.nosotros-container {
+  min-height: 100vh;
+  background: var(--color-bg);
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nosotros-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+.nosotros-header {
+  text-align: center;
+  margin-bottom: 60px;
+  animation: fadeInDown 0.8s ease;
+}
+
+.nosotros-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: 16px;
+  letter-spacing: var(--letter-spacing);
+}
+
+.nosotros-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-light);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.timeline-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 3px;
+  background: var(--color-border);
+  border-radius: 10px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), #ffac9d);
+  transition: width 0.3s ease;
+  box-shadow: var(--glow-primary);
+}
+
+.timeline-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 20px 0 40px;
+}
+
+.timeline-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline-track {
+  display: flex;
+  gap: 40px;
+  padding: 0 calc(50vw - 250px) 0 calc(50vw - 250px);
+  min-width: min-content;
+}
+
+.milestone-card {
+  flex-shrink: 0;
+  width: 85vw;
+  max-width: 500px;
+  position: relative;
+  border-radius: var(--radius-medio);
+  padding: 40px;
+  background-color: color-mix(in srgb, var(--color-bg-alt) 70%, transparent);
+  backdrop-filter: blur(6px);
+  scroll-snap-align: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0.9);
+  opacity: 0.5;
+  box-shadow: var(--sombra-media);
+  z-index: 1;
+}
+
+.milestone-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 77, 46,1),
+    rgba(0,0,0,0.08)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.milestone-card::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.050) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.050) 1px,
+      transparent 1px
+    );
+  background-size: 10px 10px;
+  opacity: 0.1;
+  pointer-events: none; 
+}
+
+.milestone-card:hover::before {
+  opacity: 1;
+}
+
+.milestone-card.active {
+  transform: scale(1);
+  opacity: 1;
+  box-shadow: var(--shadow-strong), var(--glow-primary);
+}
+
+.milestone-card.active::before {
+  opacity: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 77, 46,1),
+    rgba(255, 77, 46,0.3)
+  );
+}
+
+.milestone-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin-bottom: 24px;
+  transition: all 0.4s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+.milestone-card.active .milestone-icon {
+  transform: scale(1.1);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.milestone-year {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  background: rgba(255, 77, 46, 0.1);
+  padding: 6px 16px;
+  border-radius: var(--radius-pequeño);
+  margin-bottom: 20px;
+  letter-spacing: 0.1em;
+}
+
+.milestone-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: 16px;
+  letter-spacing: var(--letter-spacing);
+}
+
+.milestone-description {
+  font-size: var(--font-size-md);
+  color: var(--color-text-light);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.milestone-line {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 40px;
+  transition: all 0.4s ease;
+}
+
+.timeline-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dot:hover {
+  background: var(--color-text-muted);
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background: var(--color-primary);
+  box-shadow: var(--glow-primary);
+  transform: scale(1.4);
+}
+
+.nosotros-footer {
+  margin-top: 100px;
+  animation: fadeInUp 1s ease 0.3s both;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: var(--gradient-surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-alto);
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-soft);
+}
+
+.stat-number {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cta-section {
+  margin-top: 80px;
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--gradient-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--color-text), var(--color-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cta-text {
+  font-size: var(--font-size-md);
+  color: var(--color-text-light);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 currentColor;
+  }
+  50% {
+    box-shadow: 0 0 20px 5px transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  .nosotros-container {
+    padding: 60px 16px;
+  }
+
+  .nosotros-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .nosotros-subtitle {
+    font-size: var(--font-size-md);
+  }
+
+  .timeline-track {
+    padding: 0 calc(50vw - 45vw) 0 calc(50vw - 45vw);
+  }
+
+  .milestone-card {
+    width: 90vw;
+    padding: 30px;
+  }
+
+  .milestone-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+  }
+
+  .milestone-title {
+    font-size: var(--font-size-lg);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

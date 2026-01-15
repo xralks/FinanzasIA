@@ -1,5 +1,6 @@
 import NavbarHome from "../components/componentsHome/NavbarHome/NavbarHome";
 import HeroHistoria from "../components/componentsHistoria/HeroHistoria/HeroHistoria";
+import SeccionHistoria from "../components/componentsHistoria/SeccionHistoria/SeccionHistoria";
 import Footer from "../components/Footer/Footer";
 
 const HistoriaApp =() => {
@@ -7,6 +8,7 @@ const HistoriaApp =() => {
         <div>
             <NavbarHome/>
             <HeroHistoria />
+            <SeccionHistoria/>
             <Footer/>
         </div>
     );
