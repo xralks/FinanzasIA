@@ -6,9 +6,9 @@
   --glow-primary: 0 0 12px rgba(255, 77, 46, 0.45),
                   0 0 26px rgba(255, 77, 46, 0.25);
 
-  --color-secondary: #4aa3ff;
-  --color-secondary-light: #6bb6ff;
-  --color-secondary-dark: #2f7ccc;
+  --color-secondary: #e85d3f;
+  --color-secondary-light: #f07a61;
+  --color-secondary-dark: #c0482f;
 
   --color-bg: #0d0d0f;
   --color-bg-alt: #141416;
@@ -127,7 +127,7 @@ a {
 }
 
 .boton-secundario {
-  background-color: var(--color-secondary);
+  background-color: transparent;
   color: var(--color-text);
   border: 2px solid var(--color-secondary);
   border-radius: var(--radius-medio); 
@@ -139,9 +139,8 @@ a {
   transition: all 0.3s ease;
 }
 .boton-secundario:hover {
-  background-color: var(--color-primary-light);
+  background-color: rgba(255, 106, 78,0.3);
   border-color: var(--color-primary);
-  color: var(--color-bg);
   box-shadow: var(--sombra-baja); 
 }
 
