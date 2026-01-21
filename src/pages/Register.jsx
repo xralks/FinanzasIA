@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../lib/supabaseClient';
-import "./../styles/stylesGbForm.css"
+import { useAuth } from '../context/AuthContext';
+import "./../styles/stylesGbForm.css";
 
 export const Register = () => {
   const navigate = useNavigate();
+  const { signUp } = useAuth();
   
   const [formData, setFormData] = useState({
     username: '',
@@ -17,13 +18,12 @@ export const Register = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
-  // Manejar cambios en los inputs
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
-    setError(null);
+    setError(null); 
   };
 
   const validateForm = () => {
@@ -79,15 +79,11 @@ export const Register = () => {
 
       console.log('🔄 Iniciando registro...');
 
-      const { data: authData, error: signUpError } = await supabase.auth.signUp({
-        email: formData.mail,
-        password: formData.password,
-        options: {
-          data: {
-            full_name: formData.username,
-          }
-        }
-      });
+      const { data: authData, error: signUpError } = await signUp(
+        formData.mail,
+        formData.password,
+        { full_name: formData.username }
+      );
 
       if (signUpError) {
         console.error('❌ Error en signUp:', signUpError);
@@ -97,8 +93,10 @@ export const Register = () => {
       console.log('✅ Usuario creado en Auth:', authData);
       console.log('✅ El perfil se creará automáticamente con el trigger');
 
+
       setSuccess(true);
       console.log('🎉 Registro completado exitosamente');
+
 
       setTimeout(() => {
         navigate('/Inicio-Sesion');
@@ -154,7 +152,7 @@ export const Register = () => {
             </g>
           </svg>
         </div>
-        
+
         {error && (
           <div style={{
             backgroundColor: '#fee',
