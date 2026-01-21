@@ -45,12 +45,160 @@
     text-shadow: 0 0 12px rgba(255, 77, 46, 0.35);
 }
 
+/* ========== USER MENU STYLES ========== */
+.userMenuContainer {
+    position: relative;
+}
+
+.userAvatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    border: 2px solid var(--color-primary);
+    color: var(--color-text);
+    font-weight: var(--font-weight-bold);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--sombra-baja);
+}
+
+.userAvatar:hover {
+    transform: scale(1.05);
+    box-shadow: var(--glow-primary);
+    border-color: var(--color-primary-light);
+}
+
+.userAvatar:active {
+    transform: scale(0.95);
+}
+
+.userDropdownMenu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    min-width: 260px;
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medio);
+    box-shadow: var(--shadow-strong);
+    padding: 0.75rem;
+    animation: slideDown 0.2s ease;
+    z-index: 1001;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+}
+
+.userAvatarLarge {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    border: 2px solid var(--color-primary);
+    color: var(--color-text);
+    font-weight: var(--font-weight-bold);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.userDetails {
+    flex: 1;
+    min-width: 0;
+}
+
+.userName {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.userEmail {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menuDivider {
+    height: 1px;
+    background: var(--color-border);
+    margin: 0.5rem 0;
+}
+
+.menuItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-pequeño);
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.menuItem:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text);
+}
+
+.menuItem svg {
+    flex-shrink: 0;
+}
+
+.menuItemLogout {
+    color: var(--color-error);
+}
+
+.menuItemLogout:hover {
+    background: rgba(255, 77, 77, 0.1);
+    color: var(--color-error);
+}
+
 @media (max-width: 390px) {
     .navbarHomeLogo {
         padding: 1rem;
     }
 
-    .botonNavbarHome svg{
+    .botonNavbarHome svg {
         display: none !important;
+    }
+
+    .userDropdownMenu {
+        min-width: 240px;
     }
 }
