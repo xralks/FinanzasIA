@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../lib/supabaseClient';
-import "./../styles/stylesGbForm.css"
+import { useAuth } from '../context/AuthContext';
+import "./../styles/stylesGbForm.css";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { signIn } = useAuth();
   
   const [formData, setFormData] = useState({
     mail: '',
@@ -54,11 +55,7 @@ const Login = () => {
       setError(null);
 
       console.log('🔄 Intentando iniciar sesión...');
-
-      const { data, error: signInError } = await supabase.auth.signInWithPassword({
-        email: formData.mail,
-        password: formData.password,
-      });
+      const { data, error: signInError } = await signIn(formData.mail, formData.password);
 
       if (signInError) {
         console.error('❌ Error en signIn:', signInError);
@@ -66,13 +63,10 @@ const Login = () => {
       }
 
       console.log('✅ Sesión iniciada:', data);
-      console.log('✅ Usuario:', data.user);
-      console.log('✅ Session:', data.session);
       navigate('/Mi-Panel');
 
     } catch (err) {
       console.error('❌ Error completo:', err);
-
       if (err.message.includes('Invalid login credentials')) {
         setError('Correo o contraseña incorrectos');
       } else if (err.message.includes('Email not confirmed')) {
