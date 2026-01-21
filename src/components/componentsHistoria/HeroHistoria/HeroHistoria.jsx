@@ -1,32 +1,35 @@
 import './HeroHistoria.css';
-import EquipoChanchito from '../../../assets/EquipoChanchito.webp';
+import EquipoChanchito from '../../../assets/ObjetosHistoria.webp';
 
 const HeroHistoria = () => {
     return (
         <section className="hero-nosotros">
             <div className="hero-content">
                 <div className="hero-text">
-                    <span className="hero-badge">Quiénes Somos</span>
+                    <span className="hero-badge">Por qué existe la app</span>
                     <h1 className="hero-title">
-                        Transformando ideas en 
-                        <span className="resaltarTexto"> soluciones digitales</span>
+                        Finanzas personales claras,
+                        <span className="resaltarTexto"> impulsadas por inteligencia artificial</span>
                     </h1>
                     <p className="hero-description">
-                        Somos un equipo apasionado de profesionales dedicados a crear experiencias
-                        digitales excepcionales que impulsan el crecimiento de tu negocio.
+                        Este proyecto nace para resolver un problema común: la falta de visibilidad
+                        y análisis en las finanzas personales. La aplicación centraliza ingresos y gastos,
+                        genera reportes automáticos y utiliza inteligencia artificial para ofrecer
+                        insights financieros personalizados, ayudando a los usuarios a tomar
+                        mejores decisiones con sus datos.
                     </p>
                     <div className="hero-stats">
                         <div className="stat-item">
-                            <span className="stat-number">1+</span>
-                            <span className="stat-label">Año creando software</span>
+                            <span className="stat-number">Visualiza</span>
+                            <span className="stat-label">En qué se va tu dinero</span>
                         </div>
                         <div className="stat-item">
-                            <span className="stat-number">100%</span>
-                            <span className="stat-label">Proyectos personalizados</span>
+                            <span className="stat-number">Analiza</span>
+                            <span className="stat-label">Tu situación financiera</span>
                         </div>
                         <div className="stat-item">
-                            <span className="stat-number">100%</span>
-                            <span className="stat-label">Compromiso con la calidad</span>
+                            <span className="stat-number">Mejora</span>
+                            <span className="stat-label">Tus decisiones cada mes</span>
                         </div>
                     </div>
                 </div>
