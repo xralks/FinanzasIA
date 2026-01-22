@@ -1,5 +1,5 @@
 import NavbarUsuarios from "../components/componentsUsuarios/NavbarUsuarios/NavbarUsuarios";
-import BentosAhorros from "../components/componentsUsuarios/tarjetaBento/BentosAhorros";
+import BentosAhorros from "../components/componentsUsuarios/componentsAhorros/BentosAhorros";
 
 const Ahorros = () => {
     return(

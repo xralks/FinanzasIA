@@ -7,6 +7,15 @@
     z-index: 1;
 }
 
+.card-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.card-wrapper:has(.dropdown-menu-meta) {
+    z-index: 50;
+}
+
 .cardAhorro {
     position: relative;
     border-radius: var(--radius-alto);
@@ -70,13 +79,19 @@
     align-items: flex-start;
     margin-bottom: var(--space-md);
     position: relative;
-    z-index: 1;
+    z-index: 10;
 }
 
 .labelViaje {
     color: var(--color-text-light);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
+}
+
+/* ========== MENÚ DE OPCIONES ========== */
+.menu-container {
+    position: relative;
+    z-index: 20;
 }
 
 .btnMenu {
@@ -89,12 +104,76 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: var(--radius-pequeño);
 }
 
 .btnMenu:hover {
     color: var(--color-text);
+    background: rgba(255, 255, 255, 0.05);
 }
 
+.dropdown-menu-meta {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 200px;
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medio);
+    box-shadow: var(--shadow-strong);
+    padding: 0.5rem;
+    animation: slideDown 0.2s ease;
+    z-index: 200;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu-item-meta {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-pequeño);
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    font-family: var(--font-family-base);
+}
+
+.menu-item-meta:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text);
+}
+
+.menu-item-meta svg {
+    flex-shrink: 0;
+}
+
+.menu-item-danger {
+    color: var(--color-error);
+}
+
+.menu-item-danger:hover {
+    background: rgba(255, 77, 77, 0.1);
+    color: var(--color-error);
+}
+
+/* ========== CONTENIDO DE LA TARJETA ========== */
 .cardAhorro h2 {
     color: var(--color-text);
     font-size: var(--font-size-lg);
@@ -188,6 +267,7 @@
     height: 18px;
 }
 
+/* ========== RESPONSIVE ========== */
 @media (max-width: 1200px) {
     .containerCardsAhorros {
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -224,6 +304,17 @@
     
     .hola .boton-primario {
         width: 100%;
+    }
+
+    .dropdown-menu-meta {
+        right: auto;
+        left: 0;
+    }
+}
+
+@media (max-width: 800px) {
+    .dropdown-menu-meta{
+        left: -150px;
     }
 }
 

@@ -2,11 +2,18 @@ import { Plus } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import './BentosAhorros.css';
 import { supabase } from '../../../lib/supabaseClient';
+import ModalMetaAhorro from '../componentsAhorros/modalMetas/ModalMetaAhorro';
+import ModalConfirmacion from '../componentsAhorros/modalConfirmacion/ModalConfirmacion';
 
 const BentosAhorros = () => {
     const [goals, setGoals] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [metaToEdit, setMetaToEdit] = useState(null);
+    const [showConfirmacion, setShowConfirmacion] = useState(false);
+    const [metaAEliminar, setMetaAEliminar] = useState(null);
+    const [menuAbierto, setMenuAbierto] = useState(null);
 
     useEffect(() => {
         fetchMetasAhorro();
@@ -17,49 +24,47 @@ const BentosAhorros = () => {
             setLoading(true);
             setError(null);
 
-            console.log('🔄 Intentando conectar a Supabase...');
-
             const { data: { user }, error: userError } = await supabase.auth.getUser();
 
-            if (userError) {
-                console.error('❌ Error al obtener usuario:', userError);
+            if (userError || !user) {
                 throw new Error('No estás autenticado');
             }
 
-            if (!user) {
-                throw new Error('Debes iniciar sesión para ver tus metas');
-            }
-
-            console.log('✅ Usuario autenticado:', user.id);
-
             const { data: metas, error: metasError } = await supabase
                 .from('metas_ahorros')
-                .select('*')
+                .select(`
+                    id,
+                    created_at,
+                    nombre,
+                    valor_objetivo,
+                    fecha_limite,
+                    completado,
+                    usuario_id,
+                    categoria_ahorros!metas_ahorros_categoria_fkey(nombre)
+                `)
                 .eq('usuario_id', user.id)
                 .order('created_at', { ascending: false });
 
-            console.log('📊 Respuesta de Supabase:', { data: metas, error: metasError });
-
             if (metasError) {
-                console.error('❌ Error de Supabase:', metasError);
+                console.error('❌ Error al cargar metas:', metasError);
                 throw metasError;
             }
 
             if (!metas || metas.length === 0) {
-                console.warn('⚠️ No tienes metas de ahorro creadas');
                 setGoals([]);
                 return;
             }
 
             const metasConMovimientos = await Promise.all(
                 metas.map(async (meta) => {
+
                     const { data: movimientos, error: movError } = await supabase
                         .from('movimientos_ahorro')
                         .select('cantidad')
                         .eq('meta_ahorro_id', meta.id);
 
                     if (movError) {
-                        console.warn('⚠️ Error al obtener movimientos:', movError);
+                        console.error('Error al obtener movimientos:', movError);
                     }
 
                     const currentAmount = movimientos ? movimientos.reduce(
@@ -76,36 +81,89 @@ const BentosAhorros = () => {
                     return {
                         id: meta.id,
                         titulo: meta.nombre || 'Sin nombre',
-                        categoria: determinarCategoria(meta.nombre || ''),
+                        categoria: meta.categoria_ahorros?.nombre || 'General',
                         currentAmount: currentAmount,
                         goalAmount: parseFloat(meta.valor_objetivo || 0),
                         monthsRemaining: monthsRemaining,
                         completado: meta.completado,
-                        fecha_limite: meta.fecha_limite
+                        fecha_limite: meta.fecha_limite,
+                        valor_objetivo: meta.valor_objetivo
                     };
                 })
             );
 
             setGoals(metasConMovimientos);
-            console.log('✅ Datos procesados correctamente:', metasConMovimientos);
-            console.log(`✅ Total de metas cargadas: ${metasConMovimientos.length}`);
             
         } catch (err) {
-            console.error('❌ Error completo:', err);
+            console.error('❌ Error:', err);
             setError(err.message || 'Error desconocido');
         } finally {
             setLoading(false);
         }
     };
 
-    const determinarCategoria = (nombre) => {
-        const nombreLower = nombre.toLowerCase();
-        if (nombreLower.includes('viaje') || nombreLower.includes('vacacion')) return 'Viaje';
-        if (nombreLower.includes('carro') || nombreLower.includes('auto') || nombreLower.includes('vehiculo')) return 'Vehículo';
-        if (nombreLower.includes('emergencia') || nombreLower.includes('fondo')) return 'Seguridad';
-        if (nombreLower.includes('laptop') || nombreLower.includes('compu') || nombreLower.includes('tecnolog')) return 'Tecnología';
-        if (nombreLower.includes('mueble') || nombreLower.includes('casa') || nombreLower.includes('hogar')) return 'Hogar';
-        return 'General';
+    const handleNewMeta = () => {
+        setMetaToEdit(null);
+        setIsModalOpen(true);
+    };
+
+    const handleMetaSuccess = () => {
+        fetchMetasAhorro();
+    };
+
+    const toggleMenu = (metaId) => {
+        setMenuAbierto(menuAbierto === metaId ? null : metaId);
+    };
+
+    const handleMarcarCompletada = async (metaId) => {
+        try {
+            const { error } = await supabase
+                .from('metas_ahorros')
+                .update({ completado: true })
+                .eq('id', metaId);
+
+            if (error) throw error;
+
+            console.log('✅ Meta marcada como completada');
+            setMenuAbierto(null);
+            fetchMetasAhorro();
+        } catch (err) {
+            console.error('❌ Error al marcar como completada:', err);
+        }
+    };
+
+    const abrirConfirmacionEliminar = (metaId) => {
+        setMetaAEliminar(metaId);
+        setShowConfirmacion(true);
+        setMenuAbierto(null);
+    };
+
+    const confirmarEliminarMeta = async () => {
+        if (!metaAEliminar) return;
+
+        try {
+
+            const { error: movError } = await supabase
+                .from('movimientos_ahorro')
+                .delete()
+                .eq('meta_ahorro_id', metaAEliminar);
+
+            if (movError) throw movError;
+
+            const { error: metaError } = await supabase
+                .from('metas_ahorros')
+                .delete()
+                .eq('id', metaAEliminar);
+
+            if (metaError) throw metaError;
+
+            console.log('✅ Meta eliminada correctamente');
+            fetchMetasAhorro();
+        } catch (err) {
+            console.error('❌ Error al eliminar meta:', err);
+        } finally {
+            setMetaAEliminar(null);
+        }
     };
 
     if (loading) {
@@ -145,6 +203,7 @@ const BentosAhorros = () => {
     return (
         <div className="app-container">
             <div className="app-wrapper">
+
                 <div className="title-section">
                     <div>
                         <h1 className="app-title">Mis Ahorros</h1>
@@ -153,7 +212,7 @@ const BentosAhorros = () => {
                             {goals.length > 0 && ` (${goals.length} metas activas)`}
                         </p>
                     </div>
-                    <button className="boton-primario boton-medio">
+                    <button className="boton-primario boton-medio" onClick={handleNewMeta}>
                         <Plus size={18} />
                         Meta de Ahorro
                     </button>
@@ -177,16 +236,51 @@ const BentosAhorros = () => {
                                         <a className="BtnTiempo" href='/'></a>
                                     </div>
 
+
                                     <div className="cardAhorro">
+
                                         <div className="headCard">
                                             <span className="labelViaje">{goal.categoria}</span>
-                                            <button className="btnMenu">
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                                                    <circle cx="10" cy="4" r="1.5" />
-                                                    <circle cx="10" cy="10" r="1.5" />
-                                                    <circle cx="10" cy="16" r="1.5" />
-                                                </svg>
-                                            </button>
+                                            <div className="menu-container">
+                                                <button 
+                                                    className="btnMenu"
+                                                    onClick={() => toggleMenu(goal.id)}
+                                                    aria-label="Opciones de meta"
+                                                >
+                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                                        <circle cx="10" cy="4" r="1.5" />
+                                                        <circle cx="10" cy="10" r="1.5" />
+                                                        <circle cx="10" cy="16" r="1.5" />
+                                                    </svg>
+                                                </button>
+
+                                                {menuAbierto === goal.id && (
+                                                    <div className="dropdown-menu-meta">
+                                                        {!goal.completado && (
+                                                            <button 
+                                                                className="menu-item-meta"
+                                                                onClick={() => handleMarcarCompletada(goal.id)}
+                                                            >
+                                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                                                </svg>
+                                                                Marcar completada
+                                                            </button>
+                                                        )}
+                                                        <button 
+                                                            className="menu-item-meta menu-item-danger"
+                                                            onClick={() => abrirConfirmacionEliminar(goal.id)}
+                                                        >
+                                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                                <polyline points="3 6 5 6 21 6"></polyline>
+                                                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                                            </svg>
+                                                            Eliminar meta
+                                                        </button>
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
 
                                         <h2>{goal.titulo}</h2>
@@ -230,6 +324,25 @@ const BentosAhorros = () => {
                         })}
                     </div>
                 )}
+                <ModalMetaAhorro
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                    onSuccess={handleMetaSuccess}
+                    metaToEdit={metaToEdit}
+                />
+                <ModalConfirmacion
+                    isOpen={showConfirmacion}
+                    onClose={() => {
+                        setShowConfirmacion(false);
+                        setMetaAEliminar(null);
+                    }}
+                    onConfirm={confirmarEliminarMeta}
+                    titulo="¿Eliminar meta de ahorro?"
+                    mensaje="Esta acción no se puede deshacer. Se eliminarán todos los movimientos asociados a esta meta."
+                    textoConfirmar="Eliminar"
+                    textoCancelar="Cancelar"
+                    tipo="danger"
+                />
             </div>
         </div>
     );
