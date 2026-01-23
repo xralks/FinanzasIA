@@ -212,7 +212,7 @@ const BentosAhorros = () => {
                             {goals.length > 0 && ` (${goals.length} metas activas)`}
                         </p>
                     </div>
-                    <button className="boton-primario boton-medio" onClick={handleNewMeta}>
+                    <button className="boton-primario" onClick={handleNewMeta}>
                         <Plus size={18} />
                         Meta de Ahorro
                     </button>
