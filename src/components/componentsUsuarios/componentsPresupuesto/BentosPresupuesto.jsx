@@ -1,6 +1,7 @@
 import { Plus, TrendingUp, TrendingDown, DollarSign } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { supabase } from '../../../lib/supabaseClient';
+import ModalPresupuesto from './modalPresupuesto/ModalPresupuesto';
 import './BentosPresupuesto.css';
 
 const Presupuestos = () => {
@@ -334,6 +335,16 @@ const Presupuestos = () => {
                         )}
                     </>
                 )}
+                <ModalPresupuesto
+                    isOpen={isModalOpen}
+                    onClose={() => {
+                        setIsModalOpen(false);
+                        setPresupuestoToEdit(null);
+                    }}
+                    onSuccess={handlePresupuestoSuccess}
+                    presupuestoToEdit={presupuestoToEdit}
+                    mesSeleccionado={mesSeleccionado}
+                />
 
             </div>
         </div>
