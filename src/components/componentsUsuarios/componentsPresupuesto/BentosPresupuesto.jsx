@@ -2,6 +2,7 @@ import { Plus, TrendingUp, TrendingDown, DollarSign } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { supabase } from '../../../lib/supabaseClient';
 import ModalPresupuesto from './modalPresupuesto/ModalPresupuesto';
+import ModalConfirmacion from './modalPresupuesto/ModalConfimacionPresupuesto/ModalConfimacionPresupuesto';
 import './BentosPresupuesto.css';
 
 const Presupuestos = () => {
@@ -344,6 +345,19 @@ const Presupuestos = () => {
                     onSuccess={handlePresupuestoSuccess}
                     presupuestoToEdit={presupuestoToEdit}
                     mesSeleccionado={mesSeleccionado}
+                />
+                 <ModalConfirmacion
+                    isOpen={showConfirmacion}
+                    onClose={() => {
+                        setShowConfirmacion(false);
+                        setPresupuestoAEliminar(null);
+                    }}
+                    onConfirm={confirmarEliminarPresupuesto}
+                    titulo="¿Eliminar presupuesto?"
+                    mensaje="Esta acción no se puede deshacer."
+                    textoConfirmar="Eliminar"
+                    textoCancelar="Cancelar"
+                    tipo="danger"
                 />
 
             </div>
