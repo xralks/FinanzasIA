@@ -9,6 +9,7 @@ import MiPanel from '../pages/MiPanel'
 import Transacciones from '../pages/Transacciones'
 import Ahorros from '../pages/Ahorros'
 import HistoriaAPP from '../pages/HistoriaApp'
+import Presupuesto from '../pages/Presupuesto'
 
 export default function AppRoutes() {
   return (
@@ -45,6 +46,14 @@ export default function AppRoutes() {
         element={
           <ProtectedRoute>
             <Ahorros />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/Presupuestos"
+        element={
+          <ProtectedRoute>
+            <Presupuesto />
           </ProtectedRoute>
         }
       />
